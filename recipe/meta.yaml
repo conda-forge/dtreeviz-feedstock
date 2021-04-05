@@ -28,6 +28,7 @@ requirements:
     - pandas
     - pillow
     - pyspark
+    - pytest
     - python >=3.6
     - scikit-learn
     - py-xgboost
