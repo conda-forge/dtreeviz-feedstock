@@ -23,6 +23,7 @@ outputs:
         - pip
         - python >=3.6
       run:
+        - python >=3.6
         - colour
         - python-graphviz >=0.9
         - matplotlib-base
@@ -30,7 +31,6 @@ outputs:
         - pandas
         - pillow
         - pytest
-        - python >=3.6
         - scikit-learn
    
     test:
