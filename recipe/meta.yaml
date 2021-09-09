@@ -47,7 +47,7 @@ outputs:
         - python >=3.6
       run:
         - python >=3.6
-        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pyspark
         - py-xgboost
         - lightgbm
@@ -70,3 +70,4 @@ about:
 extra:
   recipe-maintainers:
     - raybellwaves
+    - pplonski
