@@ -7,17 +7,50 @@ Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/dtreeviz-feedstock/blob/master/LICENSE.txt)
 
-Summary: A Python 3 library for sci-kit learn and XGBoost decision tree visualization
+Summary: A python library for decision tree visualization and model interpretation
 
 Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table>
+    
+  <tr>
+    <td>Azure</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11160&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dtreeviz-feedstock?branchName=master">
-      </a>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11160&branchName=master">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dtreeviz-feedstock?branchName=master">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>linux_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11160&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dtreeviz-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11160&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dtreeviz-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=11160&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/dtreeviz-feedstock?branchName=master&jobName=win&configuration=win_64_" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </td>
   </tr>
 </table>
@@ -28,6 +61,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-dtreeviz-green.svg)](https://anaconda.org/conda-forge/dtreeviz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dtreeviz.svg)](https://anaconda.org/conda-forge/dtreeviz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dtreeviz.svg)](https://anaconda.org/conda-forge/dtreeviz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dtreeviz.svg)](https://anaconda.org/conda-forge/dtreeviz) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-dtreeviz--extended-green.svg)](https://anaconda.org/conda-forge/dtreeviz-extended) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/dtreeviz-extended.svg)](https://anaconda.org/conda-forge/dtreeviz-extended) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/dtreeviz-extended.svg)](https://anaconda.org/conda-forge/dtreeviz-extended) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/dtreeviz-extended.svg)](https://anaconda.org/conda-forge/dtreeviz-extended) |
 
 Installing dtreeviz
 ===================
@@ -36,12 +70,13 @@ Installing `dtreeviz` from the `conda-forge` channel can be achieved by adding `
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `dtreeviz` can be installed with:
+Once the `conda-forge` channel has been enabled, `dtreeviz, dtreeviz-extended` can be installed with:
 
 ```
-conda install dtreeviz
+conda install dtreeviz dtreeviz-extended
 ```
 
 It is possible to list all of the versions of `dtreeviz` available on your platform with:
@@ -114,5 +149,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@pplonski](https://github.com/pplonski/)
 * [@raybellwaves](https://github.com/raybellwaves/)
 
