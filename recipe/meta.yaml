@@ -1,5 +1,5 @@
 {% set name = "dtreeviz" %}
-{% set version = "1.3" %}
+{% set version = "1.3.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
-  sha256: b976c7f962e907c34cfa261e4346b28bcbee69db12880c249745f537a5b4be0b
+  sha256: 3f92a3f3fa2379b61c204f512fec9343e505a86d2440d7ef3c620e340730f3ea
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: python -m pip install . -vv
 
@@ -32,7 +32,7 @@ outputs:
         - pillow
         - pytest
         - scikit-learn
-   
+
     test:
       imports:
         - dtreeviz
@@ -51,7 +51,7 @@ outputs:
         - pyspark
         - py-xgboost
         - lightgbm
-   
+
     test:
       imports:
         - dtreeviz
