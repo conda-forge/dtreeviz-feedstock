@@ -11,43 +11,63 @@ source:
   sha256: b976c7f962e907c34cfa261e4346b28bcbee69db12880c249745f537a5b4be0b
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: python -m pip install . -vv
 
-requirements:
-  host:
-    - pip
-    - python >=3.6
-  run:
-    - colour
-    - python-graphviz >=0.9
-    - lightgbm
-    - matplotlib-base
-    - numpy
-    - pandas
-    - pillow
-    - pyspark
-    - pytest
-    - python >=3.6
-    - scikit-learn
-    - py-xgboost
 
-test:
-  imports:
-    - dtreeviz
-    - dtreeviz.models
-  commands:
-    - pip check
-  requires:
-    - pip
+outputs:
+  - name: {{ name }}
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        - colour
+        - python-graphviz >=0.9
+        - matplotlib-base
+        - numpy
+        - pandas
+        - pillow
+        - pytest
+        - scikit-learn
+   
+    test:
+      imports:
+        - dtreeviz
+      commands:
+        - pip check
+      requires:
+        - pip
+  - name: {{ name }}-extended
+    requirements:
+      host:
+        - pip
+        - python >=3.6
+      run:
+        - python >=3.6
+        - {{ pin_subpackage(name, exact=True) }}
+        - pyspark
+        - py-xgboost
+        - lightgbm
+   
+    test:
+      imports:
+        - dtreeviz
+        - dtreeviz.models
+      commands:
+        - pip check
+      requires:
+        - pip
 
 about:
   home: https://github.com/parrt/dtreeviz
-  summary: A Python 3 library for sci-kit learn and XGBoost decision tree visualization
+  summary: A python library for decision tree visualization and model interpretation
   license: MIT
   license_file: LICENSE
 
 extra:
   recipe-maintainers:
     - raybellwaves
+    - pplonski
