@@ -11,7 +11,7 @@ source:
   sha256: 6c3809cda91abca673a339afaae3adcfbf72b7773f91dfba33227e7523fd2f2c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install . -vv
 
