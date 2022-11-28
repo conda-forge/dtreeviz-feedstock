@@ -1,5 +1,5 @@
 {% set name = "dtreeviz" %}
-{% set version = "1.4.0" %}
+{% set version = "1.4.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
-  sha256: d42d18e47d6931f18823d53bba21f93b9208f8463ff519faaf5df925d8c7af3b
+  sha256: c9401ac8710288f38bf6d158825e30051686530ffa5397635a0a504d2408bf96
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: python -m pip install . -vv
 
