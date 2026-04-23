@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
   sha256: a145ff91ffaa11bd2f59186fdcffaa384d90c1757517cbb27e66cc83922319ba
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install . -vv
 
@@ -21,9 +21,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python {{ python_min }}
       run:
-        - python >=3.6
+        - python >={{ python_min }}
         - colour
         - python-graphviz >=0.9
         - matplotlib-base
@@ -44,9 +44,9 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python {{ python_min }}
       run:
-        - python >=3.6
+        - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - pyspark
         - py-xgboost
@@ -60,6 +60,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}
 
 about:
   home: https://github.com/parrt/dtreeviz
