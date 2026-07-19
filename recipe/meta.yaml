@@ -1,6 +1,5 @@
 {% set name = "dtreeviz" %}
-{% set version = "2.2.2" %}
-
+{% set version = "2.3.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,29 +7,27 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
-  sha256: a145ff91ffaa11bd2f59186fdcffaa384d90c1757517cbb27e66cc83922319ba
+  sha256: d8413a01373237150fcccb763e469384fbd055a627517d77dbb0190a1403f059
 
 build:
   number: 0
   noarch: python
   script: python -m pip install . -vv
 
-
 outputs:
   - name: {{ name }}
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python {{ python_min }}.*
       run:
-        - python >=3.6
+        - python >={{ python_min }}
         - colour
         - python-graphviz >=0.9
         - matplotlib-base
         - numpy
         - pandas
         - pillow
-        - pytest
         - scikit-learn
 
     test:
@@ -40,17 +37,19 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}.*
   - name: {{ name }}-extended
     requirements:
       host:
         - pip
-        - python >=3.6
+        - python {{ python_min }}.*
       run:
-        - python >=3.6
+        - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
         - pyspark
         - py-xgboost
         - lightgbm
+        - langchain-openai
 
     test:
       imports:
@@ -60,6 +59,7 @@ outputs:
         - pip check
       requires:
         - pip
+        - python {{ python_min }}.*
 
 about:
   home: https://github.com/parrt/dtreeviz
@@ -71,3 +71,4 @@ extra:
   recipe-maintainers:
     - raybellwaves
     - pplonski
+    - m-rossi
