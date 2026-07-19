@@ -12,10 +12,12 @@ source:
 build:
   number: 0
   noarch: python
-  script: python -m pip install . -vv
 
 outputs:
   - name: {{ name }}
+    build:
+      noarch: python
+      script: python -m pip install . -vv
     requirements:
       host:
         - pip
@@ -40,14 +42,11 @@ outputs:
         - pip
         - python {{ python_min }}.*
   - name: {{ name }}-extended
+    build:
+      noarch: generic
     requirements:
-      host:
-        - pip
-        - python {{ python_min }}.*
-        - setuptools
       run:
-        - python >={{ python_min }}
-        - {{ pin_subpackage(name, max_pin="x.x.x") }}
+        - {{ pin_subpackage(name, exact=True) }}
         - pyspark
         - py-xgboost
         - lightgbm
