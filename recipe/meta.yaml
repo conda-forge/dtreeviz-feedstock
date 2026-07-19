@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dtreeviz-{{ version }}.tar.gz
   sha256: d8413a01373237150fcccb763e469384fbd055a627517d77dbb0190a1403f059
 
 build:
@@ -20,6 +20,7 @@ outputs:
       host:
         - pip
         - python {{ python_min }}.*
+        - setuptools
       run:
         - python >={{ python_min }}
         - colour
@@ -43,6 +44,7 @@ outputs:
       host:
         - pip
         - python {{ python_min }}.*
+        - setuptools
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage(name, exact=True) }}
